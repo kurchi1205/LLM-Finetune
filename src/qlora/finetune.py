@@ -47,11 +47,10 @@ class FinetuneLLM():
             train_dataset=self.train_ds_map,
             eval_dataset=self.val_ds_map,  # Pass validation dataset here
             peft_config=self.peft_config,
-            dataset_text_field="text",
             max_seq_length=self.args.max_seq_length,
             tokenizer=self.tokenizer,
             args=training_args,
-            packing=packing,
         )
+        trainer.train()
 
 
