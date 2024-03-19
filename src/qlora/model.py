@@ -10,9 +10,9 @@ def quantization_config():
     return bnb_config
 
 
-def get_model():
+def get_model(args):
     model = AutoModelForCausalLM.from_pretrained(
-        "microsoft/phi-2", 
+        args.model_name, # "microsoft/phi-2", 
         torch_dtype="auto", 
         quantization_config=quantization_config(),
         trust_remote_code=True)
